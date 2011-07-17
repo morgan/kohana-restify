@@ -1,0 +1,177 @@
+
+/* Global */
+
+html {
+	overflow-y: scroll; /* deal with page shift in FF and Safari */
+}
+body {	
+	font-size: 12px;
+	min-width: 960px;
+}
+.clear {
+	clear: both;	
+}
+strong {
+	font-weight: bold;	
+}
+p {
+	padding-bottom: 20px;	
+}
+#wrapper {
+	padding: 15px;	
+}
+dt { 
+	float: left; 
+	clear: left;
+	width: 10%;
+	padding-right: 2%;
+}
+dd { 
+	width: 88%;
+}
+dd input {
+	width: 70%;	
+	height: 25px;
+	padding-left: 5px;
+}
+.tabs ul li {
+	margin-bottom: 5px;
+	display: block;	
+}
+.tabs ul li input {
+	height: 26px;
+	padding-left: 5px;
+}
+
+/* Builder */
+
+#header {
+	background-color: #fff;
+	padding-bottom: 15px;
+}
+#request {
+	float: left;
+}
+#method {
+	float: left;
+	font-size: 1.2em;
+}
+#url {
+	width: 489px;
+	height: 34px;
+	float: left;
+	font-size: 14px;
+	padding-left: 5px;
+	font-family: Courier;
+}
+input:-moz-placeholder {
+	color: #ccc; 
+}
+::-webkit-input-placeholder {
+	color: #ccc; 	
+}
+#settings {
+	display: block;
+	float: left;
+	width: 20px;
+	height: 20px;
+	margin: 7px 7px 0 7px;
+	background-image: url('../images/gear.png');	
+	position: relative;
+}
+#settings span {
+	width: 23px;
+	height: 12px;
+	background: url('../images/tip.png');	
+	position: absolute;
+	display: none;
+	top: 34px;
+	left: -1px;
+}
+#submit {
+	float: left;
+	font-size: 1.35em;
+	margin: 0 0 0 5px;
+}
+#loader {
+	width: 32px;
+	height: 32px;
+	float: left;
+	margin: -1px 0 0 30px;
+	display: none;
+	background-image: url('../images/loader.gif');
+}
+
+/* Configuration */
+
+#config {
+	padding: 15px;
+	margin-bottom: 15px;
+	display: none;
+	background-color: #F7F5F5;
+}
+#config_settings {
+	margin-top: 15px;	
+}
+#config_settings dl dt {
+	padding-top: 7px;
+	text-align: right;
+	color: #999;		
+}
+#config_settings dl dd {
+	margin-bottom: 20px;	
+}
+
+.post_rows dt input {
+	width: 100%;	
+}
+.post_rows dt { 
+	width: 20%;
+	padding-right: 1%;
+}
+.post_rows dd { 
+	width: 78%;
+}
+.post_rows dd input { 
+	width: 55%;
+}
+
+#add_header, #add_data {
+	margin-bottom: 10px;
+}
+#config_about {
+	padding-top: 25px;	
+}
+
+/* Message */
+
+#message {
+	display: none;
+}
+.ui-state-error, .ui-state-highlight {
+	font-size: 12px;
+	padding: 15px 15px 0 15px;
+	margin-bottom: 15px;
+}
+.ui-state-error .ui-icon, .ui-state-highlight .ui-icon {
+	float: left; 
+	margin: -1px 8px 0 0;	
+}
+
+/* Response */
+
+#response {
+	display: none;
+	font-size: 1.15em;
+}
+#response_content iframe {
+	width: 100%;	
+}
+pre.prettyprint, pre {
+	overflow: auto;
+	padding: 18px;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	font-family: Courier;
+	font-size: 13px;
+}

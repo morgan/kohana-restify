@@ -1,0 +1,2 @@
+<?php defined('SYSPATH') or die('No direct script access.') ?>
+<li><dl><dt><?php echo Form::input($prefix . '_key[]', NULL, array('placeholder' => 'Key', 'class' => 'ui-widget-content ui-corner-all')) ?></dt><dd><?php echo Form::input($prefix . '_value[]', NULL, array('placeholder' => 'Value', 'class' => 'ui-widget-content ui-corner-all')) ?> <button class="delete_row">Delete</button></dd></dl></li>
