@@ -51,8 +51,7 @@ class Controller_Restify extends Controller_REST
 			$input = $valid->as_array() + array
 			(
 				'setting_referer'	=> URL::site(Request::detect_uri()),
-				'setting_useragent'	=> $restify->get_useragent(),
-				'setting_cookies'	=> FALSE
+				'setting_useragent'	=> $restify->get_useragent()
 			);
 			
 			$request = Restify_Request::factory()
@@ -62,11 +61,8 @@ class Controller_Restify extends Controller_REST
 				->set_data($this->_combine_input('data', $input))					
 				->set_useragent($input['setting_useragent'])
 				->set_referer($input['setting_referer']);
-				
-			if ($input['setting_cookies'])
-			{
-				$request->keep_cookies(TRUE);
-			}
+			
+			$request->keep_cookies(TRUE);
 
 		    $response = $request->response();
 

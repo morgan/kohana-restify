@@ -1,16 +1,10 @@
 $(document).ready(function(){
 	
-	/*
-	 * @todo	Disable submit button when URL input is empty.
-	 * @todo	Parse cookies
-	 * @todo	Check security of curl error messages
-	 */
-	
 	$('#method').buttonset();	
 
 	$('#config .tabs').tabs();	
 	
-	$('input:submit, #setting_html, #setting_cookies').button();
+	$('input:submit, #setting_html, #cookie_faq').button();
 	
 	$('#add_data, #add_header').button({
 		icons: {
@@ -81,18 +75,17 @@ $(document).ready(function(){
 				
 				$('#response_headers_out').empty().prepend('<pre>' + data.headers_out + '</pre>');
 				
+				var response_cookies = $('#response_cookies table tbody');
+				
+				response_cookies.empty();
+				
 				if (data.cookies.length > 0)
 				{
-					if ($('#response_cookies').length == 0)
-					{
-						$response.tabs('add', '#response_cookies', 'Cookies');
-					}
-
-					$('#response_cookies table tbody').empty().html(array_to_rows(data.cookies));
+					response_cookies.html(array_to_rows(data.cookies));
 				}
-				else if ($('#response_cookies').length > 0)
+				else
 				{
-					$response.tabs('remove', $('li', $response).index($('#response_cookies')));
+					response_cookies.html('<tr><td colspan="7" class="empty">No cookies for this response.</td></tr>');
 				}
 				
 				prettyPrint();

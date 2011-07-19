@@ -175,4 +175,24 @@ pre, pre.prettyprint {
 }
 #response_cookies table {
 	width: 100%;
+	border: 1px solid #ccc;
+	padding: 18px;
+	font-size: 13px;
+}
+#response_cookies thead tr th {
+	padding-bottom: 15px;
+	font-weight: bold;
+}
+#response_cookies tbody tr td {
+	font-family: Courier;
+	padding-bottom: 5px;
+}
+#response_cookies tbody tr td.empty {
+	font-family: inherit;
+	text-align: center;
+	padding: 50px;
+}
+#cookie_faq {
+	font-size: .8em;
+	margin-top: 10px;
 }

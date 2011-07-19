@@ -190,12 +190,9 @@ class Restify_Response
 			$this->_error = curl_error($handler);
 		}
 		
-		$this->_http_code = curl_getinfo($handler, CURLINFO_HTTP_CODE);
-		
-		$this->_headers_out = curl_getinfo($handler, CURLINFO_HEADER_OUT);
-
-		$content_type = explode(';', curl_getinfo($handler, CURLINFO_CONTENT_TYPE));
-		$this->_content_type = current($content_type);
+		$this->_http_code 		= curl_getinfo($handler, CURLINFO_HTTP_CODE);
+		$this->_headers_out		= curl_getinfo($handler, CURLINFO_HEADER_OUT);
+		$this->_content_type	= curl_getinfo($handler, CURLINFO_CONTENT_TYPE);
 
 		curl_close($handler);
 		

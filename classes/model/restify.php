@@ -38,10 +38,6 @@ class Model_Restify extends Model
     		(
     			array('max_length', array(':value', 255))
     		),
-    		'setting_cookies' => array
-    		(
-    			array('digit')
-    		),
     		'setting_html' => array
     		(
     			array('digit')
@@ -63,7 +59,6 @@ class Model_Restify extends Model
 			'method' 			=> 'Method', 
 			'setting_referer' 	=> 'Referer', 
 			'setting_useragent' => 'User Agent',
-			'setting_cookies'	=> 'Cookies Enabled',
 			'setting_html'		=> 'Render HTML'
 		);
     }

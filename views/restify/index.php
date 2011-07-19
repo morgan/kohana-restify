@@ -65,11 +65,6 @@
 						    <dd><?php echo Form::input('setting_referer', $referer, array('class' => 'ui-widget-content ui-corner-all', 'id' => 'setting_referer')) ?></dd>
 						</dl>			
 
-						<dl>
-						    <dt>Cookies</dt>
-						    <dd><?php echo Form::checkbox('setting_cookies', 1, TRUE, array('id' => 'setting_cookies')) ?><?php echo Form::label('setting_cookies', __('Return Cookies')) ?></dd>
-						</dl>	
-						
 					</div>
 					<div id="config_about">
 
@@ -114,6 +109,8 @@
 						</thead>
 						<tbody></tbody>
 					</table>
+				
+					<?php echo HTML::anchor('http://www.cookiecentral.com/faq/#3.5', 'Cookie FAQ', array('id' => 'cookie_faq', 'target' => '_blank')); ?>
 				
 				</div>				
 			</div>

@@ -7,7 +7,7 @@ An interface for simplifying and testing RESTful requests.
 1. Add module to application bootstrap
 2. Specify path in `config/restify.php` to media directory.
 
-To use restify, simply hit the restify controller in your browser `http://localhost/path_to_app/restify/`
+To use restify, simply hit the restify controller in your browser `http://localhost/path_to_app/restify/`.
 
 ## Learning & References
 
@@ -15,6 +15,6 @@ To use restify, simply hit the restify controller in your browser `http://localh
 - API Browser
 - Unit Tests
 
-## Version 0.10
+## Version 0.2.0
 
-This is release version 0.10 of [Restify](https://github.com/michealmorgan/kohana-restify).
+This is release version 0.2.0 of [Restify](https://github.com/michealmorgan/kohana-restify).
