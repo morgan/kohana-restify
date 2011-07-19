@@ -167,8 +167,9 @@ input:-moz-placeholder {
 #response_content iframe {
 	width: 100%;	
 }
-pre.prettyprint, pre {
-	overflow: auto;
+pre, pre.prettyprint {
+	overflow-y: hidden;
+	overflow-x: auto;
 	padding: 18px;
 	border: 1px solid #ccc;
 	background-color: #fff;
