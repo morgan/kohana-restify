@@ -50,9 +50,9 @@ class Restify_Response
 	 * Cookie jar
 	 * 
 	 * @access	protected
-	 * @var		string
+	 * @var		array
 	 */
-	protected $_cookies;
+	protected $_cookies = array();
 	
 	/**
 	 * Content type
@@ -201,15 +201,36 @@ class Restify_Response
 		
 		if ($request->keep_cookies())
 		{
-			$temp = fopen($temp, 'r');
-			$stat = fstat($temp);
+			$this->_cookies = $this->_parse_cookie($temp);
 			
-			$this->_cookies = ($stat['size'] > 0) ? fread($temp, $stat['size']) : NULL;
-			
-			fclose($temp);
+			unlink($temp);
+		}
+
+		return $this;
+	}
+	
+	/**
+	 * Parse cookie
+	 * 
+	 * @access	protected
+	 * @param	resource
+	 * @return	array
+	 */
+	public function _parse_cookie($file)
+	{
+		$response = array();
+		
+		$lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+		
+		foreach ($lines as $line)
+		{
+			if ($line[0] == '#')
+				continue;
+
+			$response[] = explode("\t", $line);
 		}
 		
-		return $this;
+		return $response;
 	}
 	
 	/**

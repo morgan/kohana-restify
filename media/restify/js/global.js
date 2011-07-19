@@ -81,14 +81,14 @@ $(document).ready(function(){
 				
 				$('#response_headers_out').empty().prepend('<pre>' + data.headers_out + '</pre>');
 				
-				if (data.cookies)
+				if (data.cookies.length > 0)
 				{
 					if ($('#response_cookies').length == 0)
 					{
 						$response.tabs('add', '#response_cookies', 'Cookies');
 					}
-					
-					$('#response_cookies').empty().prepend('<pre>' + data.cookies + '</pre>');
+
+					$('#response_cookies table tbody').empty().html(array_to_rows(data.cookies));
 				}
 				else if ($('#response_cookies').length > 0)
 				{
@@ -127,6 +127,25 @@ $(document).ready(function(){
 	
 	$(window).resize(resize_url);	
 });
+
+function array_to_rows(array)
+{
+	var rows = [];
+	
+	for (var row = 0; row < array.length; row++)
+	{
+		var columns = [];
+		
+		for (var column = 0; column < array[row].length; column++)
+		{
+			columns.push('<td>' + array[row][column] + '</td>');
+		}
+
+		rows.push('<tr>' + columns.join('') + '</tr>');
+	}
+	
+	return rows.join('');
+}
 
 function template_error(message)
 {

@@ -78,7 +78,7 @@ class Controller_Restify extends Controller_REST
 					'content_type'	=> $response->get_content_type(),				
 					'headers'		=> HTML::chars(trim($response->get_headers())),
 					'headers_out'	=> HTML::chars(trim($response->get_headers_out())),
-					'cookies'		=> HTML::chars($response->get_cookies()),
+					'cookies'		=> $this->_sanitize_cookies($response->get_cookies()),
 					'content'		=> HTML::chars($response->get_content())
 				);
 		    }
@@ -128,4 +128,24 @@ class Controller_Restify extends Controller_REST
 
 		return $return;
 	}	
+	
+	/**
+	 * Cleanse parsed cookie array
+	 * 
+	 * @access	protected
+	 * @param	array
+	 * @return	array
+	 */
+	protected function & _sanitize_cookies(array $rows)
+	{
+		foreach ($rows as & $row)
+		{
+			foreach ($row as $key => & $value)
+			{
+				$row[$key] = HTML::chars($value);
+			}
+		}
+		
+		return $rows;
+	}
 }

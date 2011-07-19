@@ -164,9 +164,6 @@ input:-moz-placeholder {
 	display: none;
 	font-size: 1.15em;
 }
-#response_content iframe {
-	width: 100%;	
-}
 pre, pre.prettyprint {
 	overflow-y: hidden;
 	overflow-x: auto;
@@ -175,4 +172,7 @@ pre, pre.prettyprint {
 	background-color: #fff;
 	font-family: Courier;
 	font-size: 13px;
+}
+#response_cookies table {
+	width: 100%;
 }

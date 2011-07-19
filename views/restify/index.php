@@ -98,7 +98,24 @@
 				<div id="response_content"></div>
 				<div id="response_headers"></div>
 				<div id="response_headers_out"></div>
-				<div id="response_cookies"></div>				
+				<div id="response_cookies">
+				
+					<table>
+						<thead>
+							<tr>
+								<th>Domain</th>
+								<th>Flag</th>
+								<th>Path</th>
+								<th>Secure</th>
+								<th>Expiration</th>
+								<th>Key</th>
+								<th>Value</th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+				
+				</div>				
 			</div>
 			
 		</div>
