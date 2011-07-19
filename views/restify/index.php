@@ -104,19 +104,5 @@
 		</div>
 
 	</div>
-
-	<?php echo HTML::script($path . 'js/jquery-1.6.2.min.js'), PHP_EOL; ?>
-	<?php echo HTML::script($path . 'js/jquery-ui-1.8.14.custom.min.js'), PHP_EOL; ?>
-	<?php echo HTML::script($path . 'js/prettify/prettify.js'), PHP_EOL; ?>
-	<?php echo HTML::script($path . 'js/global.js'), PHP_EOL; ?>
-	<script>
-		var restify = {
-			controller: '<?php echo URL::site('restify/request') ?>',
-			template: {
-				data: '<?php echo View::factory('restify/row', array('prefix' => 'data')); ?>',
-				header: '<?php echo View::factory('restify/row', array('prefix' => 'header')); ?>'
-			}
-		};		
-	</script>
 	
 <?php echo View::factory('restify/footer'); ?>
