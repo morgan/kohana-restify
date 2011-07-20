@@ -11,7 +11,8 @@ To use restify, simply hit the restify controller in your browser `http://localh
 
 ## Learning & References
 
-- Live demonstration at: http://restify.io/
+- Live Demonstration: http://restify.io/
+- Demo Video: http://vimeo.com/michealmorgan/restify-overview
 - API Browser
 - Unit Tests
 
