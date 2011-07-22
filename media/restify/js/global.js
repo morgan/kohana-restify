@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	$('#launchpad').dialog({
-		width: 575,
+		width: 600,
 		open: function(){
 			$('#getstarted').fadeOut();
 		},
@@ -15,6 +15,8 @@ $(document).ready(function(){
 		$('#url').val($(this).attr('href'));
 		
 		$('#submit').click();
+		
+		$('#launchpad').dialog('close');
 		
 		return false;
 	});
@@ -47,6 +49,8 @@ $(document).ready(function(){
 	$('#settings').click(function(){
 		
 		$('#config, #settings span').toggle();
+		
+		$('#launchpad').dialog('close');
 		
 		return false;
 	});

@@ -107,6 +107,14 @@ class Restify_Request
 	protected $_data = array();
 	
 	/**
+	 * Max redirects
+	 * 
+	 * @access	protected
+	 * @var		array
+	 */
+	protected $_max_redirects = 5;	
+	
+	/**
 	 * Get and set cookie flag
 	 * 
 	 * @access	public
@@ -272,6 +280,12 @@ class Restify_Request
 	    
 	    curl_setopt($handler, CURLOPT_USERAGENT, $this->_useragent);
 	    curl_setopt($handler, CURLOPT_REFERER, $this->_referer);
+	    
+	    curl_setopt($handler, CURLOPT_SSL_VERIFYPEER, FALSE);
+	    curl_setopt($handler, CURLOPT_SSL_VERIFYHOST, FALSE);
+	    
+	    curl_setopt($handler, CURLOPT_FOLLOWLOCATION, TRUE);
+	    curl_setopt($handler, CURLOPT_MAXREDIRS, $this->_max_redirects);
 	    
 	    curl_setopt($handler, CURLOPT_CUSTOMREQUEST, $this->_method);
 	    curl_setopt($handler, CURLOPT_HEADERFUNCTION, array($response, 'callback_header'));

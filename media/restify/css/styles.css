@@ -48,11 +48,6 @@ dd input {
 	height: 26px;
 	padding-left: 5px;
 }
-#getstarted {
-	float: right;
-	margin-right: 15px;
-	display: none;
-}
 
 /* Launchpad */
 
@@ -262,7 +257,7 @@ pre, pre.prettyprint {
 /* Footer */
 
 #footer_spacer {
-	height: 65px; /* to imitate footer space */	
+	height: 65px; /* to imitate footer height */	
 	width: 100px;
 	clear: both;
 }
@@ -274,4 +269,18 @@ pre, pre.prettyprint {
 	height: 47px; /* for ie7 */
 	bottom: 0 !important;
 	bottom: 0px; /* for ie6 */
+}
+#getstarted {
+	float: right;
+	margin-right: 15px;
+	display: none;
+}
+#copyright {
+	float: left;
+	margin: 20px 0 0 15px;
+	font-size: 11px;
+	font-family: Arial;
+}
+#copyright, #copyright a {
+	color: #666;
 }

@@ -148,12 +148,12 @@
 
 		<div id="footer">
 		
-			<div id="getstarted"><?php echo HTML::anchor('#', 'Get Started'); ?></div>
+			<div id="copyright"><?php echo __('Copyright &#169; '), date('Y'), ' ', HTML::anchor('http://morgan.ly', __('Micheal Morgan')); ?></div>
+		
+			<div id="getstarted"><?php echo HTML::anchor('#', __('Get Started')); ?></div>
 			
 		</div>
 
 	</div>
-	
-	
 	
 <?php echo View::factory('restify/footer'); ?>
