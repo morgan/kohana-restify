@@ -1,5 +1,18 @@
 $(document).ready(function(){
 	
+	$('#launchpad').dialog({
+		width: 650
+	});
+	
+	$('#launchpad_sample_links a').click(function(){
+
+		$('#url').val($(this).text());
+		
+		$('#submit').click();
+		
+		return false;
+	});
+	
 	$('#method').buttonset();	
 
 	$('#config .tabs').tabs();	
@@ -95,6 +108,7 @@ $(document).ready(function(){
 				resize_url();
 			},
 			'complete'	: function(){
+				$('#launchpad').dialog('close');
 				$('#loader').hide();
 				$('#submit').show();	
 			},

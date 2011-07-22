@@ -25,6 +25,7 @@ class Controller_Restify extends Controller_REST
 		
 		$data['referer'] 	= URL::site(Request::detect_uri());		
 		$data['useragent'] 	= $restify->get_useragent();
+		$data['samples']	= Kohana::config('restify.samples');
 		
 		$this->response->body(View::factory('restify/index', $data));
 	}

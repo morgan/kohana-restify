@@ -43,6 +43,48 @@ dd input {
 	padding-left: 5px;
 }
 
+/* Launchpad */
+
+#launchpad {
+	margin: 50px;	
+}
+#launchpad_vimeo, #launchpad_github, #launchpad_twitter, #launchpad_sample {
+	width: 342px;
+	height: 48px;
+	display: block;		
+	margin-bottom: 5px;
+	background-image: url('../images/sprite_launchpad.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;	
+}
+#launchpad_github {
+	background-position: 0px -48px;
+}
+#launchpad_twitter {
+	background-position: 0px -96px;
+}
+#launchpad_sample {
+	background-position: 0px -144px;
+}
+#launchpad_sample_links {
+	margin: 10px 0 0 30px;	
+}
+#launchpad_sample_links a {
+	display: block;
+	float: left;
+	clear: left;
+	padding: 10px;
+	margin-bottom: 5px;
+	background-color: #F1F1F1;		
+	color: #666;
+	font-size: 11px;	
+	font-family: Courier;
+	text-decoration: none;	
+}
+#launchpad_sample_links a:hover {
+	text-decoration: underline;
+}
+
 /* Builder */
 
 #header {
