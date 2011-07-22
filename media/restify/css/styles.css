@@ -46,7 +46,15 @@ dd input {
 /* Launchpad */
 
 #launchpad {
-	margin: 50px;	
+	padding: 50px;	
+	position: relative;
+}
+#launchpad_like {
+	position: absolute;
+	top: 25px;
+	right: 25px;
+	height: 25px;
+	width: 50px;	
 }
 #launchpad_vimeo, #launchpad_github, #launchpad_twitter, #launchpad_sample {
 	width: 342px;

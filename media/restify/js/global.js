@@ -1,12 +1,12 @@
 $(document).ready(function(){
 	
 	$('#launchpad').dialog({
-		width: 650
+		width: 575
 	});
 	
 	$('#launchpad_sample_links a').click(function(){
 
-		$('#url').val($(this).text());
+		$('#url').val($(this).attr('href'));
 		
 		$('#submit').click();
 		
