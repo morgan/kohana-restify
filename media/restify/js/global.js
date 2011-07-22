@@ -1,7 +1,13 @@
 $(document).ready(function(){
 	
 	$('#launchpad').dialog({
-		width: 575
+		width: 575,
+		open: function(){
+			$('#getstarted').fadeOut();
+		},
+		close: function(){
+			$('#getstarted').fadeIn();
+		}
 	});
 	
 	$('#launchpad_sample_links a').click(function(){
@@ -11,6 +17,19 @@ $(document).ready(function(){
 		$('#submit').click();
 		
 		return false;
+	});
+	
+	$('#getstarted').click(function(){
+		
+		$('#launchpad').dialog('open');
+		
+		return false;
+	});
+	
+	$('#getstarted a').button({
+			icons: {
+			primary: "ui-icon-info"
+		}
 	});
 	
 	$('#method').buttonset();	

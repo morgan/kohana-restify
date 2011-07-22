@@ -144,6 +144,16 @@
 			
 		</div>
 
+		<div id="footer_spacer"></div>
+
+		<div id="footer">
+		
+			<div id="getstarted"><?php echo HTML::anchor('#', 'Get Started'); ?></div>
+			
+		</div>
+
 	</div>
+	
+	
 	
 <?php echo View::factory('restify/footer'); ?>
