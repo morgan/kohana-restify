@@ -3,7 +3,7 @@
 
 	<div id="wrapper">
 
-		<?php echo Form::open(NULL) ?>
+		<?php echo Form::open($request, array('method' => 'post')) ?>
 	
 			<div id="header">
 	

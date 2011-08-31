@@ -83,13 +83,13 @@ $(document).ready(function(){
 	
 	$('.delete_row').live('click', function(){
 
-		$(this).parent().remove();
+		$(this).parent().parent().remove();
 		
 		return false;
 	});
 	
 	$response = $('#response .tabs').tabs();
-	
+
 	$('form').submit(function(){
 		
 		$('#submit').hide();
@@ -150,7 +150,7 @@ $(document).ready(function(){
 			
 		return false;
 	});
-	
+
 	$controls = $('#request').width() - $('#url').width() + 31;
 
 	resize_url();
