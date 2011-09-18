@@ -20,12 +20,12 @@ class Controller_Restify extends Controller_REST
 	{
 		$restify = Model::factory('restify');
 		
-		if ( ! $data['path'] = Kohana::config('restify.media'))
+		if ( ! $data['path'] = Kohana::$config->load('restify.media'))
 			throw new Kohana_Exception('Media not configured. Specify path under `config/restify.php`');
 		
 		$data['referer'] 	= URL::site(Request::detect_uri());		
 		$data['useragent'] 	= $restify->get_useragent();
-		$data['samples']	= Kohana::config('restify.samples');
+		$data['samples']	= Kohana::$config->load('restify.samples');
 		$data['request']	= $this->request;
 		
 		$this->response->body(View::factory('restify/index', $data));
@@ -117,9 +117,9 @@ class Controller_Restify extends Controller_REST
 		{
 			foreach ($input[$_key] as $index => $key)
 			{
-				if ($key != '' && $key = urlencode($key))
+				if ($key != '' && $key = urldecode($key))
 				{
-					$return[$key] = (isset($input[$_value][$index])) ? urlencode($input[$_value][$index]) : FALSE;
+					$return[$key] = (isset($input[$_value][$index])) ? urldecode($input[$_value][$index]) : FALSE;
 				}
 			}
 		}

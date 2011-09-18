@@ -96,7 +96,7 @@ $(document).ready(function(){
 		$('#loader').show();
 
 		$('#message').empty().hide();
-		
+
 		$.ajax({
 			'url'		: restify.controller,
 			'type'		: 'POST',

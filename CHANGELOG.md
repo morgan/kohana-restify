@@ -1,3 +1,10 @@
+# 0.4.0 - 09/17/2011
+
+- Resolved defect with deleting data and header rows
+- Resolved defect with double sanitizing input data
+- Upgraded module to support Kohana 3.2
+- Added support for transparent extending of `Restify_Request` and `Restify_Response` classes
+
 # 0.3.0 - 07/22/2011
 
 - Added "Getting Started" dialog with links for a Vimeo demo, GitHub, Twitter and a list of sample URLs
