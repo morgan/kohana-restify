@@ -70,7 +70,7 @@
 
 						<p>Thank you for your interest in <?php echo HTML::anchor('http://restify.io'); ?>. This tool is here to make RESTful testing easier. It was created by <?php echo HTML::anchor('http://morgan.ly', 'Micheal Morgan'); ?>.</p>
 						
-						<p>Restify is an open source <?php echo HTML::anchor('http://kohanaframework.org/', 'Kohana'); ?> module and is available on GitHub: <?php echo HTML::anchor('http://github.com/michealmorgan/kohana-restify'); ?>.</p>
+						<p>Restify is an open source <?php echo HTML::anchor('http://kohanaframework.org/', 'Kohana'); ?> module and is available on GitHub: <?php echo HTML::anchor('http://github.com/morgan/kohana-restify'); ?>.</p>
 
 					</div>
 				</div>
