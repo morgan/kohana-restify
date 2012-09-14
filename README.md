@@ -18,4 +18,4 @@ To use restify, simply hit the restify controller in your browser `http://localh
 
 ## Version 0.5.0
 
-This is release version 0.5.0 of [Restify](https://github.com/michealmorgan/kohana-restify).
+This is release version 0.5.0 of [Restify](https://github.com/morgan/kohana-restify).

@@ -6,7 +6,7 @@ return array
 	'samples'	=> array
 	(
 		'http://feeds.feedburner.com/KohanaModules?format=xml',
-		'http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&format=yaml',
+		'http://api.flickr.com/services/feeds/photos_public.gne?tags=cat&format=json',
 		'http://restify.io/test'
 	)
 );

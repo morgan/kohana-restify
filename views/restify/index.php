@@ -85,7 +85,7 @@
 		
 			<ul>
 				<li><?php echo HTML::anchor('http://vimeo.com/michealmorgan/restify-overview', '', array('id' => 'launchpad_vimeo')); ?></li>
-				<li><?php echo HTML::anchor('https://github.com/michealmorgan/kohana-restify', '', array('id' => 'launchpad_github')); ?></li>		
+				<li><?php echo HTML::anchor('https://github.com/morgan/kohana-restify', '', array('id' => 'launchpad_github')); ?></li>		
 				<li><?php echo HTML::anchor('https://twitter.com/michealmorgan', '', array('id' => 'launchpad_twitter')); ?></li>		
 				<li><div id="launchpad_sample"></div>
 					<ul id="launchpad_sample_links">
