@@ -2,10 +2,11 @@
 /**
  * Tests Restify Module
  *
+ * @group		restify
  * @package		Restify
  * @category	Tests
  * @author		Micheal Morgan <micheal@morgan.ly>
- * @copyright	(c) 2011 Micheal Morgan
+ * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
 class Kohana_RestifyTest extends Unittest_TestCase

@@ -1,3 +1,10 @@
+# 0.5.0 - 09/14/2012
+
+- Added support for formatting JSON
+- Updated jQuery to 1.8.1
+- Updated jQuery UI to 1.8.23
+- All tests pass: "OK (1 test, 12 assertions)"
+
 # 0.4.0 - 09/17/2011
 
 - Resolved defect with deleting data and header rows
