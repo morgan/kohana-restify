@@ -105,7 +105,7 @@ $(document).ready(function(){
 			
 				$('#response_content').empty();
 
-				$('#response_content').prepend('<pre class="prettyprint"><code>' + data.content + '</code></pre>');
+				$('#response_content').prepend('<pre class="prettyprint"><code>' + filter_content(data.content) + '</code></pre>');
 				
 				$('#response_headers').empty().prepend('<pre>' + data.headers + '</pre>');
 				
@@ -175,6 +175,19 @@ function array_to_rows(array)
 	}
 	
 	return rows.join('');
+}
+
+function filter_content(content)
+{
+	try
+	{
+		// Attempt to parse and format JSON
+		content = JSON.stringify(JSON.parse(content), null, 4);
+	}
+	catch (e) {}
+
+	// HTML Encode
+	return $('<div/>').text(content).html();
 }
 
 function template_error(message)

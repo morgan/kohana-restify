@@ -77,7 +77,7 @@ class Controller_Restify extends Controller_REST
 					'headers'		=> HTML::chars(trim($response->get_headers())),
 					'headers_out'	=> HTML::chars(trim($response->get_headers_out())),
 					'cookies'		=> $this->_sanitize_cookies($response->get_cookies()),
-					'content'		=> HTML::chars($response->get_content())
+					'content'		=> $response->get_content()
 				);
 		    }
 		    else
@@ -101,6 +101,7 @@ class Controller_Restify extends Controller_REST
 	/**
 	 * Get array
 	 * 
+	 * @todo	After urldecode, filter input through htmlspecialchars
 	 * @access	protected
 	 * @param	string
 	 * @param	array
