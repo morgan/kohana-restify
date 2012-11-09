@@ -55,12 +55,23 @@ class Controller_Restify extends Controller_REST
 				'setting_referer'	=> URL::site(Request::detect_uri()),
 				'setting_useragent'	=> $restify->get_useragent()
 			);
-			
+
+			$data = NULL;
+
+			if ($input['config_data_type'] == 'paired')
+			{
+				$data = $this->_combine_input('data', $input);
+			}
+			else if ($input['config_data_type'] == 'body')
+			{
+				$data = $input['config_data_body'];
+			}
+
 			$request = Restify_Request::factory()
 				->set_url($input['url'])
 				->set_method($input['method'])		
 				->set_headers($this->_combine_input('header', $input))
-				->set_data($this->_combine_input('data', $input))					
+				->set_data($data)
 				->set_useragent($input['setting_useragent'])
 				->set_referer($input['setting_referer']);
 			

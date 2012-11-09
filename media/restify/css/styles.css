@@ -14,6 +14,9 @@ body {
 .clear {
 	clear: both;	
 }
+.hide {
+	display: none;
+}
 strong {
 	font-weight: bold;	
 }
@@ -166,6 +169,21 @@ input:-moz-placeholder {
 	display: none;
 	background-color: #F7F5F5;
 }
+#config_data {
+	min-height: 85px;
+}
+#config_headers {
+	min-height: 45px;
+}
+#config_data_type {
+	margin-bottom: 10px;
+}
+#add_data, #add_header {
+	float: right;
+}
+#config_data_body textarea {
+	width: 75%;
+}
 #config_settings {
 	margin-top: 15px;	
 }
@@ -175,7 +193,7 @@ input:-moz-placeholder {
 	color: #999;		
 }
 #config_settings dl dd {
-	margin-bottom: 20px;	
+	margin-bottom: 20px;
 }
 
 .post_rows dt input {
@@ -212,7 +230,7 @@ input:-moz-placeholder {
 }
 .ui-state-error .ui-icon, .ui-state-highlight .ui-icon {
 	float: left; 
-	margin: -1px 8px 0 0;	
+	margin: -1px 8px 0 0;
 }
 
 /* Response */
@@ -225,6 +243,8 @@ input:-moz-placeholder {
 pre, pre.prettyprint {
 	overflow-y: hidden;
 	overflow-x: auto;
+}
+pre, pre.prettyprint, #config_data_body textarea {
 	padding: 18px;
 	border: 1px solid #ccc;
 	background-color: #fff;

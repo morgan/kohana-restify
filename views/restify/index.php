@@ -14,7 +14,7 @@
 						<?php echo Form::radio('method', 'POST', FALSE, array('id' => 'method_post')), Form::label('method_post', 'POST'), PHP_EOL; ?>
 						<?php echo Form::radio('method', 'PUT', FALSE, array('id' => 'method_put')), Form::label('method_put', 'PUT'), PHP_EOL; ?>
 						<?php echo Form::radio('method', 'DELETE', FALSE, array('id' => 'method_delete')), Form::label('method_delete', 'DELETE'); ?>			
-					</div>		
+					</div>
 		
 					<?php echo HTML::anchor('#', '<span></span>', array('id' => 'settings')); ?>
 	
@@ -37,20 +37,33 @@
 						<li><?php echo HTML::anchor('#config_data', __('Data')); ?></li>
 						<li><?php echo HTML::anchor('#config_headers', __('Headers')); ?></li>
 						<li><?php echo HTML::anchor('#config_settings', __('Settings')); ?></li>
-						<li><?php echo HTML::anchor('#config_about', __('About')); ?></li>			
+						<li><?php echo HTML::anchor('#config_about', __('About')); ?></li>
 					</ul>
 					<div id="config_data" class="post_rows">
-	
-						<?php echo HTML::anchor('#', __('Add Row'), array('id' => 'add_data')); ?>
-						
-						<ul></ul>
-						
+
+						<div id="config_data_type">
+							<?php echo Form::radio('config_data_type', 'paired', TRUE, array('id' => 'config_data_type_paired')), Form::label('config_data_type_paired', 'Key / Value'), PHP_EOL; ?>
+							<?php echo Form::radio('config_data_type', 'body', FALSE, array('id' => 'config_data_type_body')), Form::label('config_data_type_body', 'Body'), PHP_EOL; ?>
+						</div>
+
+						<div id="config_data_paired">
+
+							<?php echo HTML::anchor('#', __('Add Row'), array('id' => 'add_data')); ?>
+
+							<ul></ul>
+
+						</div>
+
+						<div id="config_data_body" class="hide">
+							<?php echo Form::textarea('config_data_body'), PHP_EOL; ?>
+						</div>
+
 					</div>
 					<div id="config_headers" class="post_rows">
 						
-						<?php echo HTML::anchor('#', __('Add Row'), array('id' => 'add_header')); ?>					
+						<?php echo HTML::anchor('#', __('Add Row'), array('id' => 'add_header')); ?>
 	
-						<ul></ul>						
+						<ul></ul>
 						
 					</div>
 					<div id="config_settings">
@@ -97,7 +110,7 @@
 						<?php endforeach; ?>
 
 					</ul>
-				</li>				
+				</li>
 			</ul>
 
 			<div id="launchpad_like">
@@ -106,8 +119,8 @@
 			
 			</div>
 
-		</div>	
-			 
+		</div>
+		
 		<div id="response">
 		
 			<div class="tabs">
@@ -115,7 +128,7 @@
 					<li><?php echo HTML::anchor('#response_content', __('Response')); ?></li>
 					<li><?php echo HTML::anchor('#response_headers', __('Headers Received')); ?></li>
 					<li><?php echo HTML::anchor('#response_headers_out', __('Headers Sent')); ?></li>
-					<li><?php echo HTML::anchor('#response_cookies', __('Cookies')); ?></li>					
+					<li><?php echo HTML::anchor('#response_cookies', __('Cookies')); ?></li>
 				</ul>
 				<div id="response_content"></div>
 				<div id="response_headers"></div>
@@ -139,7 +152,7 @@
 				
 					<?php echo HTML::anchor('http://www.cookiecentral.com/faq/#3.5', 'Cookie FAQ', array('id' => 'cookie_faq', 'target' => '_blank')); ?>
 				
-				</div>				
+				</div>
 			</div>
 			
 		</div>

@@ -34,9 +34,16 @@ $(document).ready(function(){
 		}
 	});
 	
-	$('#method').buttonset();	
+	$('#method, #config_data_type').buttonset();
 
-	$('#config .tabs').tabs();	
+	$('#config_data_type').click(function(){
+
+		$('#config_data_paired, #config_data_body').toggle();
+
+		return false;
+	});
+
+	$('#config .tabs').tabs();
 	
 	$('input:submit, #setting_html, #cookie_faq').button();
 	
@@ -55,32 +62,16 @@ $(document).ready(function(){
 		return false;
 	});
 
-	$('#add_data').click(function(){
-		
-		$('#config_data ul').append(restify.template.data);
-		
-		$('.delete_row').button({
-			icons: {
-            	primary: "ui-icon-circle-close"
-			}
-        });
-		
-		return false;
-	}).click();		
+	$('#add_data').click(add_data_row);
+
+	$('#add_header').click(add_header_row);
 	
-	$('#add_header').click(function(){
-		
-		$('#config_headers ul').append(restify.template.header);
-		
-		$('.delete_row').button({
-			icons: {
-            	primary: "ui-icon-circle-close"
-			}
-        });
-		
-		return false;
-	}).click();		
-	
+	for (i = 0; i < 4; i++)
+	{
+		add_data_row();
+		add_header_row();
+	}
+
 	$('.delete_row').live('click', function(){
 
 		$(this).parent().parent().remove();
@@ -102,7 +93,7 @@ $(document).ready(function(){
 			'type'		: 'POST',
 			'data'		: $(this).serialize(),
 			'success'	: function(data){
-			
+
 				$('#response_content').empty();
 
 				$('#response_content').prepend('<pre class="prettyprint"><code>' + filter_content(data.content) + '</code></pre>');
@@ -144,7 +135,7 @@ $(document).ready(function(){
 					message = 'There was an API error: "' + jQuery.parseJSON(jq.responseText).error + '"';
 				}
 				
-				$('#message').show().prepend(template_error(message));				
+				$('#message').show().prepend(template_error(message));
 			}
 		});
 			
@@ -155,8 +146,34 @@ $(document).ready(function(){
 
 	resize_url();
 	
-	$(window).resize(resize_url);	
+	$(window).resize(resize_url);
 });
+
+function add_data_row()
+{
+	$('#config_data ul').append(restify.template.data);
+	
+	$('.delete_row').button({
+		icons: {
+        	primary: "ui-icon-circle-close"
+		}
+    });
+	
+	return false;
+}
+
+function add_header_row()
+{
+	$('#config_headers ul').append(restify.template.header);
+	
+	$('.delete_row').button({
+		icons: {
+        	primary: "ui-icon-circle-close"
+		}
+    });
+	
+	return false;
+}
 
 function array_to_rows(array)
 {
