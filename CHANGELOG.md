@@ -1,6 +1,7 @@
-# 0.6.0
+# 0.6.0 - 11/09/2012
 
-- Added config option for specifying body of HTTP request instead of key/value pair
+- Added config option for specifying body of HTTP request instead of key/value pair. This only 
+applies to POST and PUT requests.
 - All tests pass: "OK (2 tests, 18 assertions)"
 
 # 0.5.0 - 09/14/2012
