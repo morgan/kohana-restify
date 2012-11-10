@@ -102,7 +102,7 @@ class Kohana_Restify_Request
 	 * Key/Value data
 	 * 
 	 * @access	protected
-	 * @var		array
+	 * @var		mixed	array|string
 	 */
 	protected $_data = array();
 	
@@ -200,6 +200,12 @@ class Kohana_Restify_Request
 	 */
 	public function add_data($key, $value)
 	{
+		// If not array, clear previously set data
+		if ( ! is_array($this->_data))
+		{
+			$this->_data = array();
+		}
+
 		$this->_data[$key] = $value;
 		
 		return $this;
@@ -212,11 +218,18 @@ class Kohana_Restify_Request
 	 * @param	array
 	 * @return	$this
 	 */
-	public function set_data(array $data)
+	public function set_data($data)
 	{
-		foreach ($data as $key => $value)
+		if (is_array($data))
 		{
-			$this->add_data($key, $value);
+			foreach ($data as $key => $value)
+			{
+				$this->add_data($key, $value);
+			}
+		}
+		else
+		{
+			$this->_data = $data;
 		}
 		
 		return $this;
@@ -262,19 +275,21 @@ class Kohana_Restify_Request
 		
 	    $handler = curl_init();
 
-	    if ( ! empty($this->_data))
-	    {
+    	if ($this->_data)
+    	{
 	    	// Determine how to use data array, either within body or query string
 		    if (in_array($this->_method, array(self::HTTP_POST, self::HTTP_PUT)))
 		    {
+		    	$data = (is_array($this->_data)) ? http_build_query($this->_data) : $this->_data;
+
 		    	curl_setopt($handler, CURLOPT_POST, 1); 
-				curl_setopt($handler, CURLOPT_POSTFIELDS, http_build_query($this->_data));
+				curl_setopt($handler, CURLOPT_POSTFIELDS, $data);
 		    } 
-		    else
+		    else if (is_array($this->_data))
 		    {
 		    	$this->_url .= '?' . http_build_query($this->_data);
 		    }
-	    }
+    	}
 	    
 	    curl_setopt($handler, CURLOPT_URL, $this->_url);
 	    

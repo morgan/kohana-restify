@@ -36,11 +36,13 @@ $(document).ready(function(){
 	
 	$('#method, #config_data_type').buttonset();
 
-	$('#config_data_type').click(function(){
+	// Make sure radio is refreshed to prevent out of sync with toggle
+	$('#config_data_type_paired').click();
+
+	$('[for=config_data_type_paired], [for=config_data_type_body]').click(function(){
 
 		$('#config_data_paired, #config_data_body').toggle();
 
-		return false;
 	});
 
 	$('#config .tabs').tabs();

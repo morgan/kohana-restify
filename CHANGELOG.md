@@ -1,3 +1,8 @@
+# 0.6.0
+
+- Added config option for specifying body of HTTP request instead of key/value pair
+- All tests pass: "OK (2 tests, 18 assertions)"
+
 # 0.5.0 - 09/14/2012
 
 - Added support for formatting JSON

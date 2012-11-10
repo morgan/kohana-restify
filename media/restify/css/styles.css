@@ -183,21 +183,22 @@ input:-moz-placeholder {
 }
 #config_data_body textarea {
 	width: 75%;
+	height: 125px;
 }
 #config_settings {
-	margin-top: 15px;	
+	margin-top: 15px;
 }
 #config_settings dl dt {
 	padding-top: 7px;
 	text-align: right;
-	color: #999;		
+	color: #999;
 }
 #config_settings dl dd {
 	margin-bottom: 20px;
 }
 
 .post_rows dt input {
-	width: 100%;	
+	width: 100%;
 }
 .post_rows dt { 
 	width: 20%;

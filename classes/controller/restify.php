@@ -62,14 +62,14 @@ class Controller_Restify extends Controller_REST
 			{
 				$data = $this->_combine_input('data', $input);
 			}
-			else if ($input['config_data_type'] == 'body')
+			else if ($input['config_data_type'] == 'body' AND in_array($input['method'], array(Restify_Request::HTTP_POST, Restify_Request::HTTP_PUT)))
 			{
 				$data = $input['config_data_body'];
 			}
 
 			$request = Restify_Request::factory()
 				->set_url($input['url'])
-				->set_method($input['method'])		
+				->set_method($input['method'])
 				->set_headers($this->_combine_input('header', $input))
 				->set_data($data)
 				->set_useragent($input['setting_useragent'])
@@ -84,7 +84,7 @@ class Controller_Restify extends Controller_REST
 			    $output = array
 				(
 					'http_code'		=> $response->get_http_code(),
-					'content_type'	=> $response->get_content_type(),				
+					'content_type'	=> $response->get_content_type(),
 					'headers'		=> HTML::chars(trim($response->get_headers())),
 					'headers_out'	=> HTML::chars(trim($response->get_headers_out())),
 					'cookies'		=> $this->_sanitize_cookies($response->get_cookies()),

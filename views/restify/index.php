@@ -161,7 +161,7 @@
 
 		<div id="footer">
 		
-			<div id="copyright"><?php echo __('Copyright &#169; '), date('Y'), ' ', HTML::anchor('http://morgan.ly', __('Micheal Morgan')); ?></div>
+			<div id="copyright"><?php echo __('Copyright &#169; '), '2011-', date('Y'), ' ', HTML::anchor('http://morgan.ly', __('Micheal Morgan')); ?></div>
 		
 			<div id="getstarted"><?php echo HTML::anchor('#', __('Get Started')); ?></div>
 			

@@ -11,6 +11,27 @@
 class Controller_Restify_Test extends Controller_REST
 {
 	/**
+	 * Whether or not to parse data
+	 * 
+	 * @access	public
+	 * @return	void
+	 */
+	protected $_raw_data = FALSE;
+
+	/**
+	 * Setup
+	 * 
+	 * @access	public
+	 * @return	void
+	 */
+	public function before()
+	{
+		$this->_raw_data = ($this->request->param('raw')) ? TRUE : FALSE;
+
+		parent::before();
+	}
+
+	/**
 	 * restify/test/index
 	 * 
 	 * @access	public
@@ -18,10 +39,21 @@ class Controller_Restify_Test extends Controller_REST
 	 */
 	public function action_index()
 	{
+		$data = NULL;
+
+		if ($this->_raw_data)
+		{
+			$data = http_build_query($this->request->query());
+		}
+		else
+		{
+			$data = $this->request->query();
+		}
+
 		$this->_render(array
 		(
 			'method'	=> Restify_Request::HTTP_GET,
-			'data'		=> $this->request->query()
+			'data'		=> $data
 		));
 	}
 
@@ -36,7 +68,7 @@ class Controller_Restify_Test extends Controller_REST
 		$this->_render(array
 		(
 			'method'	=> Restify_Request::HTTP_POST,
-			'data'		=> $this->request->post()
+			'data'		=> ($this->_raw_data) ? $this->request->body() : $this->request->post()
 		));
 	}
 
@@ -48,16 +80,21 @@ class Controller_Restify_Test extends Controller_REST
 	 */
 	public function action_update()
 	{
-		$post = array();
+		$data = array();
 		
-		parse_str($this->request->body(), $post);
-		
-		$this->request->post($post);
+		if ($this->_raw_data)
+		{
+			$data = $this->request->body();	
+		}
+		else
+		{
+			parse_str($this->request->body(), $data);
+		}
 		
 		$this->_render(array
 		(
 			'method'	=> Restify_Request::HTTP_PUT,
-			'data'		=> $this->request->post()
+			'data'		=> $data
 		));
 	}
 
@@ -69,10 +106,21 @@ class Controller_Restify_Test extends Controller_REST
 	 */
 	public function action_delete()
 	{
+		$data = NULL;
+
+		if ($this->_raw_data)
+		{
+			$data = http_build_query($this->request->query());
+		}
+		else
+		{
+			$data = $this->request->query();
+		}
+
 		$this->_render(array
 		(
 			'method'	=> Restify_Request::HTTP_DELETE,
-			'data'		=> $this->request->query()
+			'data'		=> $data
 		));
 	}
 	
@@ -84,6 +132,6 @@ class Controller_Restify_Test extends Controller_REST
 	 */
 	public function _render($data)
 	{
-		$this->response->body(json_encode($data))->headers('content-type', 'application/json');		
+		$this->response->body(json_encode($data))->headers('content-type', 'application/json');
 	}
 }
