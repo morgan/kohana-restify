@@ -56,7 +56,7 @@ class Kohana_Restify_Request
 	 * @access	protected
 	 * @var		string
 	 */
-	protected $_url;	
+	protected $_url;
 	
 	/**
 	 * Request Method
@@ -72,7 +72,7 @@ class Kohana_Restify_Request
 	 * @access	protected
 	 * @var		string
 	 */
-	protected $_headers = array();	
+	protected $_headers = array();
 	
 	/**
 	 * Referer
@@ -88,7 +88,7 @@ class Kohana_Restify_Request
 	 * @access	protected
 	 * @var		string|NULL
 	 */
-	protected $_useragent;	
+	protected $_useragent;
 	
 	/**
 	 * Collect cookies?
@@ -112,7 +112,7 @@ class Kohana_Restify_Request
 	 * @access	protected
 	 * @var		array
 	 */
-	protected $_max_redirects = 5;	
+	protected $_max_redirects = 5;
 	
 	/**
 	 * Get and set cookie flag
@@ -142,7 +142,7 @@ class Kohana_Restify_Request
 		$this->_url = $value;
 		
 		return $this;
-	}	
+	}
 	
 	/**
 	 * Set referer
@@ -188,7 +188,7 @@ class Kohana_Restify_Request
 		}
 		
 		return $this;
-	}	
+	}
 	
 	/**
 	 * Add data
@@ -209,7 +209,7 @@ class Kohana_Restify_Request
 		$this->_data[$key] = $value;
 		
 		return $this;
-	}	
+	}
 	
 	/**
 	 * Set data
@@ -273,47 +273,47 @@ class Kohana_Restify_Request
 	{
 		$response = new Restify_Response;
 		
-	    $handler = curl_init();
+		$handler = curl_init();
 
-    	if ($this->_data)
-    	{
-	    	// Determine how to use data array, either within body or query string
-		    if (in_array($this->_method, array(self::HTTP_POST, self::HTTP_PUT)))
-		    {
-		    	$data = (is_array($this->_data)) ? http_build_query($this->_data) : $this->_data;
+		if ($this->_data)
+		{
+			// Determine how to use data array, either within body or query string
+			if (in_array($this->_method, array(self::HTTP_POST, self::HTTP_PUT)))
+			{
+				$data = (is_array($this->_data)) ? http_build_query($this->_data) : $this->_data;
 
-		    	curl_setopt($handler, CURLOPT_POST, 1); 
+				curl_setopt($handler, CURLOPT_POST, 1); 
 				curl_setopt($handler, CURLOPT_POSTFIELDS, $data);
-		    } 
-		    else if (is_array($this->_data))
-		    {
-		    	$this->_url .= '?' . http_build_query($this->_data);
-		    }
-    	}
-	    
-	    curl_setopt($handler, CURLOPT_URL, $this->_url);
-	    
-	    curl_setopt($handler, CURLOPT_USERAGENT, $this->_useragent);
-	    curl_setopt($handler, CURLOPT_REFERER, $this->_referer);
-	    
-	    curl_setopt($handler, CURLOPT_SSL_VERIFYPEER, FALSE);
-	    curl_setopt($handler, CURLOPT_SSL_VERIFYHOST, FALSE);
-	    
-	    curl_setopt($handler, CURLOPT_FOLLOWLOCATION, TRUE);
-	    curl_setopt($handler, CURLOPT_MAXREDIRS, $this->_max_redirects);
-	    
-	    curl_setopt($handler, CURLOPT_CUSTOMREQUEST, $this->_method);
-	    curl_setopt($handler, CURLOPT_HEADERFUNCTION, array($response, 'callback_header'));
-	    curl_setopt($handler, CURLOPT_RETURNTRANSFER, TRUE);
-	    curl_setopt($handler, CURLOPT_TIMEOUT, 10);
-	    curl_setopt($handler, CURLINFO_HEADER_OUT, TRUE);
-	   
-	    if ( ! empty($this->_headers))
-	    {
+			} 
+			else if (is_array($this->_data))
+			{
+				$this->_url .= '?' . http_build_query($this->_data);
+			}
+		}
+
+		curl_setopt($handler, CURLOPT_URL, $this->_url);
+
+		curl_setopt($handler, CURLOPT_USERAGENT, $this->_useragent);
+		curl_setopt($handler, CURLOPT_REFERER, $this->_referer);
+
+		curl_setopt($handler, CURLOPT_SSL_VERIFYPEER, FALSE);
+		curl_setopt($handler, CURLOPT_SSL_VERIFYHOST, FALSE);
+
+		curl_setopt($handler, CURLOPT_FOLLOWLOCATION, TRUE);
+		curl_setopt($handler, CURLOPT_MAXREDIRS, $this->_max_redirects);
+
+		curl_setopt($handler, CURLOPT_CUSTOMREQUEST, $this->_method);
+		curl_setopt($handler, CURLOPT_HEADERFUNCTION, array($response, 'callback_header'));
+		curl_setopt($handler, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($handler, CURLOPT_TIMEOUT, 10);
+		curl_setopt($handler, CURLINFO_HEADER_OUT, TRUE);
+
+		if ( ! empty($this->_headers))
+		{
 			curl_setopt($handler, CURLOPT_HTTPHEADER, $this->_get_formatted_headers());
-	    }
-	    
-	    return $response->process($handler, $this);
+		}
+
+		return $response->process($handler, $this);
 	}
 	
 	/**
@@ -324,13 +324,13 @@ class Kohana_Restify_Request
 	 */
 	public function _get_formatted_headers($formatted = array())
 	{
-    	foreach ($this->_headers as $key => $value)
-    	{
-    		$formatted[] = $key . ': ' . $value;
-    	}	
+		foreach ($this->_headers as $key => $value)
+		{
+			$formatted[] = $key . ': ' . $value;
+		}
 
-    	$formatted[] = 'Expect:';
-    	
-    	return $formatted;
+		$formatted[] = 'Expect:';
+
+		return $formatted;
 	}
 }

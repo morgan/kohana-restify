@@ -16,44 +16,44 @@ class Model_Restify extends Model
 	 * @access	public
 	 * @return	array
 	 */
-    public function rules()
-    {
-    	return array
-    	(
+	public function rules()
+	{
+		return array
+		(
 			'url' => array
-    		(
-    			array('not_empty'),
-    			array('url')
-    		),
-    		'method' => array
-    		(
-    			array('not_empty'),
-    			array('in_array', array(':value', $this->http_methods()))
-    		),
-    		'setting_referer' => array
-    		(
-    			array('url')
-    		),
-    		'setting_useragent' => array
-    		(
-    			array('max_length', array(':value', 255))
-    		),
-    		'setting_html' => array
-    		(
-    			array('digit')
-    		)
-    	);
-    }
+			(
+				array('not_empty'),
+				array('url')
+			),
+			'method' => array
+			(
+				array('not_empty'),
+				array('in_array', array(':value', $this->http_methods()))
+			),
+			'setting_referer' => array
+			(
+				array('url')
+			),
+			'setting_useragent' => array
+			(
+				array('max_length', array(':value', 255))
+			),
+			'setting_html' => array
+			(
+				array('digit')
+			)
+		);
+	}
 
-    /**
-     * Validation labels
-     * 
-     * @access	public
-     * @return	array
-     */
-    public function labels()
-    {
-    	return array
+	/**
+	 * Validation labels
+	 * 
+	 * @access	public
+	 * @return	array
+	 */
+	public function labels()
+	{
+		return array
 		(
 			'url' 				=> 'URL', 
 			'method' 			=> 'Method', 
@@ -61,8 +61,8 @@ class Model_Restify extends Model
 			'setting_useragent' => 'User Agent',
 			'setting_html'		=> 'Render HTML'
 		);
-    }
-    
+	}
+
 	/**
 	 * HTTP request methods
 	 * 
@@ -88,6 +88,8 @@ class Model_Restify extends Model
 	 */
 	public function get_useragent()
 	{
-		return (isset($_SERVER['HTTP_USER_AGENT'])) ? $_SERVER['HTTP_USER_AGENT'] : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:5.0) Gecko/20100101 Firefox/5.0';
-	}	
+		return (isset($_SERVER['HTTP_USER_AGENT'])) 
+			? $_SERVER['HTTP_USER_AGENT'] 
+			: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.6; rv:5.0) Gecko/20100101 Firefox/5.0';
+	}
 }
