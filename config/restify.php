@@ -10,4 +10,3 @@ return array
 		'http://restify.io/test'
 	)
 );
-	

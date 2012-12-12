@@ -20,7 +20,7 @@ class Kohana_Restify_Response
 	public static function factory()
 	{
 		return new Restify_Response;
-	}	
+	}
 	
 	/**
 	 * HTTP Code
@@ -36,7 +36,7 @@ class Kohana_Restify_Response
 	 * @access	protected
 	 * @var		string
 	 */
-	protected $_headers;	
+	protected $_headers;
 	
 	/**
 	 * Out Headers
@@ -44,7 +44,7 @@ class Kohana_Restify_Response
 	 * @access	protected
 	 * @var		string
 	 */
-	protected $_headers_out;	
+	protected $_headers_out;
 	
 	/**
 	 * Cookie jar
@@ -87,7 +87,7 @@ class Kohana_Restify_Response
 	public function get_http_code()
 	{
 		return $this->_http_code;
-	}	
+	}
 	
 	/**
 	 * Get headers
@@ -98,7 +98,7 @@ class Kohana_Restify_Response
 	public function get_headers()
 	{
 		return $this->_headers;
-	}	
+	}
 	
 	/**
 	 * Get headers out
@@ -109,7 +109,7 @@ class Kohana_Restify_Response
 	public function get_headers_out()
 	{
 		return $this->_headers_out;
-	}	
+	}
 	
 	/**
 	 * Get content type
@@ -120,7 +120,7 @@ class Kohana_Restify_Response
 	public function get_content_type()
 	{
 		return $this->_content_type;
-	}	
+	}
 	
 	/**
 	 * Get content
@@ -131,7 +131,7 @@ class Kohana_Restify_Response
 	public function & get_content()
 	{
 		return $this->_content;
-	}	
+	}
 	
 	/**
 	 * Get cookies
@@ -176,15 +176,15 @@ class Kohana_Restify_Response
 	{
 		if ($request->keep_cookies())
 		{
-		    $temp = tempnam(sys_get_temp_dir(), 'cookie');
-		    
-		    curl_setopt($handler, CURLOPT_COOKIEJAR, $temp); 
-		    curl_setopt($handler, CURLOPT_COOKIEFILE, $temp);
-		    curl_setopt($handler, CURLOPT_COOKIESESSION, TRUE); 		
+			$temp = tempnam(sys_get_temp_dir(), 'cookie');
+
+			curl_setopt($handler, CURLOPT_COOKIEJAR, $temp); 
+			curl_setopt($handler, CURLOPT_COOKIEFILE, $temp);
+			curl_setopt($handler, CURLOPT_COOKIESESSION, TRUE);
 		}
 		
 		$this->_content = curl_exec($handler);
-	    
+		
 		if ($this->_content === FALSE)
 		{
 			$this->_error = curl_error($handler);
@@ -242,6 +242,6 @@ class Kohana_Restify_Response
 	{
 		$this->_headers .= $header;
 		
-        return strlen($header);
+		return strlen($header);
 	}
 }

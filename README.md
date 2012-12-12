@@ -16,6 +16,6 @@ To use restify, simply hit the restify controller in your browser `http://localh
 - API Browser
 - Unit Tests
 
-## Version 0.6.0
+## Version 0.7.0
 
-This is release version 0.6.0 of [Restify](https://github.com/morgan/kohana-restify).
+This is release version 0.7.0 of [Restify](https://github.com/morgan/kohana-restify).

@@ -1,6 +1,6 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 /**
- * Response
+ * Request
  * 
  * @package		Request
  * @category	Base
@@ -8,4 +8,4 @@
  * @copyright	(c) 2011-2012 Micheal Morgan
  * @license		MIT
  */
-class Restify_Response extends Kohana_Restify_Response {}
+class Restify_Request extends Kohana_Restify_Request {}

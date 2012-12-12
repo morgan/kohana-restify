@@ -1,3 +1,10 @@
+# 0.7.0 - 12/12/2012
+
+- Upgraded to support Kohana 3.3
+- Renamed class files and directories to support PSR-0
+- Performed basic formatting clean up
+- All tests pass: "OK (2 tests, 18 assertions)"
+
 # 0.6.0 - 11/09/2012
 
 - Added config option for specifying body of HTTP request instead of key/value pair. This only 
