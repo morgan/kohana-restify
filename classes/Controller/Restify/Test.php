@@ -84,7 +84,7 @@ class Controller_Restify_Test extends Controller_REST
 		
 		if ($this->_raw_data)
 		{
-			$data = $this->request->body();	
+			$data = $this->request->body();
 		}
 		else
 		{

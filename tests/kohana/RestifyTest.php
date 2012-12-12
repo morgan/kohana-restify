@@ -30,7 +30,7 @@ class Kohana_RestifyTest extends Unittest_TestCase
 		$restify = Model::factory('restify');
 		
 		foreach ($restify->http_methods() as $method)
-		{			
+		{
 			$data = array
 			(
 				'key1'	=> 'value1',
@@ -75,7 +75,7 @@ class Kohana_RestifyTest extends Unittest_TestCase
 		$restify = Model::factory('restify');
 		
 		foreach (array(Restify_Request::HTTP_POST, Restify_Request::HTTP_PUT) as $method)
-		{			
+		{
 			$data = json_encode(array
 			(
 				'key1'	=> 'value1',

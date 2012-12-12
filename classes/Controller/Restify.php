@@ -23,7 +23,7 @@ class Controller_Restify extends Controller_REST
 		if ( ! $data['path'] = Kohana::$config->load('restify.media'))
 			throw new Kohana_Exception('Media not configured. Specify path under `config/restify.php`');
 		
-		$data['referer'] 	= URL::site(Request::detect_uri());		
+		$data['referer'] 	= URL::site(Request::detect_uri());
 		$data['useragent'] 	= $restify->get_useragent();
 		$data['samples']	= Kohana::$config->load('restify.samples');
 		$data['request']	= $this->request;
@@ -42,7 +42,7 @@ class Controller_Restify extends Controller_REST
 		$restify = Model::factory('restify');
 		
 		$valid = Validation::factory($this->request->post())->labels($restify->labels());
-			
+		
 		foreach ($restify->rules() as $field => $rules)
 		{
 			$valid->rules($field, $rules);
@@ -77,11 +77,11 @@ class Controller_Restify extends Controller_REST
 			
 			$request->keep_cookies(TRUE);
 
-		    $response = $request->response();
+			$response = $request->response();
 
-		    if ( ! $response->has_error())
-		    {
-			    $output = array
+			if ( ! $response->has_error())
+			{
+				$output = array
 				(
 					'http_code'		=> $response->get_http_code(),
 					'content_type'	=> $response->get_content_type(),
@@ -90,11 +90,11 @@ class Controller_Restify extends Controller_REST
 					'cookies'		=> $this->_sanitize_cookies($response->get_cookies()),
 					'content'		=> $response->get_content()
 				);
-		    }
-		    else
-		    {
-		    	$output = array('error' => $response->get_error());
-		    }
+			}
+			else
+			{
+				$output = array('error' => $response->get_error());
+			}
 		}
 		else
 		{
@@ -106,7 +106,7 @@ class Controller_Restify extends Controller_REST
 			$this->response->status(500);
 		}
 		
-		$this->response->body(json_encode($output))->headers('content-type', 'application/json');	
+		$this->response->body(json_encode($output))->headers('content-type', 'application/json');
 	}
 
 	/**
@@ -131,13 +131,15 @@ class Controller_Restify extends Controller_REST
 			{
 				if ($key != '' && $key = urldecode($key))
 				{
-					$return[$key] = (isset($input[$_value][$index])) ? urldecode($input[$_value][$index]) : FALSE;
+					$return[$key] = (isset($input[$_value][$index])) 
+						? urldecode($input[$_value][$index]) 
+						: FALSE;
 				}
 			}
 		}
 
 		return $return;
-	}	
+	}
 	
 	/**
 	 * Cleanse parsed cookie array
