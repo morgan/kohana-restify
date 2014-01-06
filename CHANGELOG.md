@@ -1,3 +1,9 @@
+# 0.7.1 - 01/06/2014
+
+- Fixed model factory case for initialization. Resolved issue #3.
+- Updated Facebook like button plugin
+- All tests pass: "OK (2 tests, 18 assertions)"
+
 # 0.7.0 - 12/12/2012
 
 - Upgraded to support Kohana 3.3

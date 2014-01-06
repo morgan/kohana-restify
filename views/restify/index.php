@@ -1,6 +1,15 @@
 <?php defined('SYSPATH') or die('No direct script access.') ?>
 <?php echo View::factory('restify/header', array('path' => $path)); ?>
 
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=232596780114112";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
 	<div id="wrapper">
 
 		<?php echo Form::open($request, array('method' => 'post')) ?>
@@ -76,7 +85,7 @@
 						<dl>
 						    <dt><?php echo Form::label('setting_referer', __('Referer')) ?></dt>
 						    <dd><?php echo Form::input('setting_referer', $referer, array('class' => 'ui-widget-content ui-corner-all', 'id' => 'setting_referer')) ?></dd>
-						</dl>			
+						</dl>
 
 					</div>
 					<div id="config_about">
@@ -98,8 +107,8 @@
 		
 			<ul>
 				<li><?php echo HTML::anchor('http://vimeo.com/michealmorgan/restify-overview', '', array('id' => 'launchpad_vimeo')); ?></li>
-				<li><?php echo HTML::anchor('https://github.com/morgan/kohana-restify', '', array('id' => 'launchpad_github')); ?></li>		
-				<li><?php echo HTML::anchor('https://twitter.com/michealmorgan', '', array('id' => 'launchpad_twitter')); ?></li>		
+				<li><?php echo HTML::anchor('https://github.com/morgan/kohana-restify', '', array('id' => 'launchpad_github')); ?></li>
+				<li><?php echo HTML::anchor('https://twitter.com/michealmorgan', '', array('id' => 'launchpad_twitter')); ?></li>
 				<li><div id="launchpad_sample"></div>
 					<ul id="launchpad_sample_links">
 					
@@ -114,9 +123,9 @@
 			</ul>
 
 			<div id="launchpad_like">
-			
-				<iframe src="http://www.facebook.com/plugins/like.php?app_id=232596780114112&amp;href=restify.io&amp;send=false&amp;layout=button_count&amp;width=50&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:50px; height:21px;" allowTransparency="true"></iframe>
-			
+				
+				<div class="fb-like" data-href="http://restify.io/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
 			</div>
 
 		</div>
