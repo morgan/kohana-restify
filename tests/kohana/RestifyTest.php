@@ -27,7 +27,7 @@ class Kohana_RestifyTest extends Unittest_TestCase
 	 */
 	public function test_request()
 	{
-		$restify = Model::factory('restify');
+		$restify = Model::factory('Restify');
 		
 		foreach ($restify->http_methods() as $method)
 		{
@@ -72,7 +72,7 @@ class Kohana_RestifyTest extends Unittest_TestCase
 	 */	
 	public function test_request_raw_body()
 	{
-		$restify = Model::factory('restify');
+		$restify = Model::factory('Restify');
 		
 		foreach (array(Restify_Request::HTTP_POST, Restify_Request::HTTP_PUT) as $method)
 		{

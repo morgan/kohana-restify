@@ -18,7 +18,7 @@ class Controller_Restify extends Controller_REST
 	 */
 	public function action_index()
 	{
-		$restify = Model::factory('restify');
+		$restify = Model::factory('Restify');
 		
 		if ( ! $data['path'] = Kohana::$config->load('restify.media'))
 			throw new Kohana_Exception('Media not configured. Specify path under `config/restify.php`');
@@ -39,7 +39,7 @@ class Controller_Restify extends Controller_REST
 	 */
 	public function action_create()
 	{
-		$restify = Model::factory('restify');
+		$restify = Model::factory('Restify');
 		
 		$valid = Validation::factory($this->request->post())->labels($restify->labels());
 		
