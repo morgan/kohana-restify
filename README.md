@@ -1,3 +1,7 @@
+:warning: **Notice**: The Kohana Framework announced official retirement on 07/01/2017. Therefore, this repository is no longer maintained.
+
+----
+
 # Restify Module
 
 An interface for simplifying and testing RESTful requests.
@@ -11,7 +15,6 @@ To use restify, simply hit the restify controller in your browser `http://localh
 
 ## Learning & References
 
-- Live Demonstration: http://restify.io/
 - Demo Video: http://vimeo.com/michealmorgan/restify-overview
 - API Browser
 - Unit Tests
